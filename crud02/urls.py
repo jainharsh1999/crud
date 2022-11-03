@@ -16,10 +16,21 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from crud02.views import *
+from . import views
 
 urlpatterns = [
     
     path('register', register, name='register'),
     path('loginpage', loginpage, name='loginpage'),
-    
+    path('', views.apiOverview, name="api-overview"),
+	path('/task-list/', views.taskList, name="taskList"),
+	path('/task-detail/<str:k>/', views.taskDetail, name="taskDetail"),
+
+	path('/task-create/', views.taskCreate, name="taskCreate"),
+	path('/task-update/<str:k>/', views.taskUpdate, name="taskUpdate"),
+	path('/task-delete/<str:k>/', views.taskDelete, name="taskDelete"),
+ 
 ]
+    
+    
+
