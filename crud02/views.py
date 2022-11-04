@@ -38,18 +38,8 @@ def  loginpage(request):
     return render(request,"login.html")
 
 def employees_list(request):
-    form = EmployeeForm()
-    
-    if request.method == 'POST':
-        form = EmployeeForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('employees-list')
-    
-    context = {
-        'employees': form,
-    }
-    return render(request, 'employee/list.html', context)
+    employee = Employee.objects.all()
+    return render(request, 'list.html', {"employees":employee})
 
 
 def create_employee(request):
@@ -64,7 +54,7 @@ def create_employee(request):
     context = {
         'form': form,
     }
-    return render(request, 'employee/create.html', context)
+    return render(request, 'create.html', context)
 
 
 def edit_employee(request, pk):
@@ -81,7 +71,7 @@ def edit_employee(request, pk):
         'employee': employee,
         'form': form,
     }
-    return render(request, 'employee/edit.html', context)
+    return render(request, 'edit.html', context)
 
 
 def delete_employee(request, pk):
@@ -94,4 +84,4 @@ def delete_employee(request, pk):
     context = {
         'employee': employee,
     }
-    return render(request, 'employee/delete.html', context)
+    return render(request, 'delete.html', context)

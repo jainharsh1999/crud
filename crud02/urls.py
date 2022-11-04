@@ -22,10 +22,10 @@ urlpatterns = [
     
     path('register', register, name='register'),
     path('loginpage', loginpage, name='loginpage'),
-    path('', views.employees_list, name='employees-list'),
+    path('list/', views.employees_list, name='employees-list'),
     path('create/', views.create_employee, name='create-employee'),
-    path('edit/', views.edit_employee, name='edit-employee'),
-    path('delete/', views.delete_employee, name='delete-employee'),
+    path('edit/<pk>', views.edit_employee, name='edit-employee'),
+    path('delete/<pk>', views.delete_employee, name='delete-employee'),
  
 ]
     
