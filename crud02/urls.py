@@ -22,13 +22,10 @@ urlpatterns = [
     
     path('register', register, name='register'),
     path('loginpage', loginpage, name='loginpage'),
-    path('', views.apiOverview, name="api-overview"),
-	path('/task-list/', views.taskList, name="taskList"),
-	path('/task-detail/<str:k>/', views.taskDetail, name="taskDetail"),
-
-	path('/task-create/', views.taskCreate, name="taskCreate"),
-	path('/task-update/<str:k>/', views.taskUpdate, name="taskUpdate"),
-	path('/task-delete/<str:k>/', views.taskDelete, name="taskDelete"),
+    path('', views.employees_list, name='employees-list'),
+    path('create/', views.create_employee, name='create-employee'),
+    path('edit/', views.edit_employee, name='edit-employee'),
+    path('delete/', views.delete_employee, name='delete-employee'),
  
 ]
     

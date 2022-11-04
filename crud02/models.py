@@ -9,20 +9,17 @@ class customer(models.Model):
   city = models.CharField(max_length=100, null=True, blank=False)
   address = models.CharField(max_length=250, null=True, blank=False)
   pincode = models.IntegerField(null=True, blank=False)
-  
-class login(models.Model):
-    email = models.CharField(max_length=100, null=True, blank=False)
-    password = models.CharField(max_length=100, null=True, blank=False)  
     
-    def _str_(self) :
-        return self.email
-    
-class Task(models.Model):
-  title = models.CharField(max_length=200)
-  completed = models.BooleanField(default=False, blank=True, null=True)
-      
-  def __str__(self):
-    return self.title    
+class Employee(models.Model):
+    emp_name = models.CharField(max_length=200)
+    emp_email = models.EmailField()
+    emp_contact = models.CharField(max_length=20)
+    emp_role = models.CharField(max_length=200)
+    emp_salary = models.IntegerField()
+    id = models.IntegerField(unique=True, primary_key=True, editable=False)
+
+    def __str__(self):
+        return self.emp_name   
     
 class vender(models.Model):
   name = models.CharField(max_length=100, null=True, blank=False)

@@ -1,7 +1,7 @@
 from rest_framework import serializers
-from .models import Task
+from .models import Employee
 
 class crudSerializer(serializers.ModelSerializer):
 	class Meta:
-		model = Task
+		model = Employee
 		fields ='__all__'
