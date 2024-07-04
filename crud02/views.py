@@ -20,7 +20,7 @@ def register(request):
         log=customer(name=Username, Email=Email, city=city, address=address, pincode=pincode, password=password)
         
         log.save()
-    
+        return render(request, 'login.html')
     return render(request, 'register.html')
 
 def  loginpage(request):
@@ -31,7 +31,8 @@ def  loginpage(request):
         print(Email)
         print(password)
         if user.exists():
-            return HttpResponse("Successfully run")
+            employee = Employee.objects.all()
+            return render(request, 'list.html', {"employees":employee})
         else:   
             return HttpResponse("404 error!")
            

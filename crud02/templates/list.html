@@ -32,6 +32,11 @@
                     <td>{{ emp.emp_role }}</td>
                     <td>{{ emp.emp_salary }}</td>
                     <td>
+                        <a href="{% url 'edit-employee' emp.id %}" class="btn btn-warning">Edit</a>
+                        <a href="{% url 'delete-employee' emp.id %}" class="btn btn-danger">Delete</a>
+                    </td>
+
+                    <td>
                         {% comment %} <a style="margin-right: 30px;" href="{% url 'edit-employee' emp.id %}">Edit</a>
                         <a href="{% url 'delete-employee' emp.id %}">Remove</a> {% endcomment %}
                     </td>
